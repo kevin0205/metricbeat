@@ -1,7 +1,7 @@
 # Base
 FROM alpine:latest AS base
 # Use Docker Buildx
-#FROM --platform=$TARGETPLATFORM alpine AS base
+#FROM --platform=$TARGETPLATFORM alpine:latest AS base
 #ARG TARGETPLATFORM
 #ARG BUILDPLATFORM
 ARG VERSION
@@ -63,7 +63,8 @@ COPY --from=base /tmp/metricbeat-${VERSION:-7.6.2}-linux-x86_64/ /usr/share/metr
 COPY --from=builder /go/src/github.com/elastic/beats/metricbeat/metricbeat /usr/share/metricbeat
 COPY docker-entrypoint /usr/local/bin/
 
-RUN groupadd --gid 1000 metricbeat && \
+RUN chmod +x /usr/local/bin/docker-entrypoint && \
+    groupadd --gid 1000 metricbeat && \
     useradd -M --uid 1000 --gid 1000 --home /usr/share/metricbeat metricbeat
 
 WORKDIR /usr/share/metricbeat
