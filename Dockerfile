@@ -2,8 +2,8 @@
 FROM alpine:latest AS base
 # Use Docker Buildx
 #FROM --platform=$TARGETPLATFORM alpine:latest AS base
-#ARG TARGETPLATFORM
-#ARG BUILDPLATFORM
+ARG TARGETPLATFORM
+ARG BUILDPLATFORM
 ARG VERSION
 RUN set -ex; \
     apk add --no-cache curl wget && \
@@ -16,12 +16,12 @@ RUN set -ex; \
 FROM golang:latest AS builder
 # Use Docker Buildx
 #FROM --platform=$TARGETPLATFORM golang:latest AS builder
-#ARG TARGETPLATFORM
-#ARG BUILDPLATFORM
+ARG TARGETPLATFORM
+ARG BUILDPLATFORM
 ARG VERSION
 ARG GO_ARCH
 
-ENV CGO_ENABLED=0 GOOS=linux GOARCH=${GO_ARCH:-amd64}
+#ENV CGO_ENABLED=0 GOOS=linux GOARCH=${GO_ARCH:-amd64}
 
 # GO
 #RUN go get -x github.com/elastic/beats; exit 0
@@ -52,8 +52,8 @@ RUN git fetch && \
 FROM ubuntu:focal
 # Use Docker Buildx
 #FROM --platform=$TARGETPLATFORM ubuntu:focal
-#ARG TARGETPLATFORM
-#ARG BUILDPLATFORM
+ARG TARGETPLATFORM
+ARG BUILDPLATFORM
 ARG VERSION
 
 ENV ELASTIC_CONTAINER true
