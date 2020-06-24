@@ -1,5 +1,5 @@
 # Base
-FROM alpine AS base
+FROM alpine:latest AS base
 # Use Docker Buildx
 #FROM --platform=$TARGETPLATFORM alpine AS base
 #ARG TARGETPLATFORM
