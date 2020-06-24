@@ -21,7 +21,7 @@ FROM golang:latest AS builder
 ARG VERSION
 ARG GO_ARCH
 
-ENV CGO_ENABLED=0 GOOS=linux GOARCH=${GO_ARCH:-arm64}
+ENV CGO_ENABLED=0 GOOS=linux GOARCH=${GO_ARCH:-amd64}
 
 # GO
 #RUN go get -x github.com/elastic/beats; exit 0
