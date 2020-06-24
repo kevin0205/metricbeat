@@ -63,8 +63,7 @@ COPY --from=base /tmp/metricbeat-${VERSION:-7.6.2}-linux-x86_64/ /usr/share/metr
 COPY --from=builder /go/src/github.com/elastic/beats/metricbeat/metricbeat /usr/share/metricbeat
 COPY docker-entrypoint /usr/local/bin/
 
-RUN chmod +x /usr/local/bin/docker-entrypoint && \
-    groupadd --gid 1000 metricbeat && \
+RUN groupadd --gid 1000 metricbeat && \
     useradd -M --uid 1000 --gid 1000 --home /usr/share/metricbeat metricbeat
 
 WORKDIR /usr/share/metricbeat
@@ -72,6 +71,7 @@ RUN mkdir data logs && \
     chown -R root:metricbeat . && \
     find /usr/share/metricbeat -type d -exec chmod 0750 {} \; && \
     find /usr/share/metricbeat -type f -exec chmod 0640 {} \; && \
+    chmod 0750 /usr/local/bin/docker-entrypoint && \
     chmod 0750 /usr/share/metricbeat/metricbeat && \
     chmod 0770 modules.d && \
     chmod 0770 data logs modules.d
