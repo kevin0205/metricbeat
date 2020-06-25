@@ -12,6 +12,4 @@ before_install:
 install:
   - docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
   - docker buildx create --name xbuilder --use
-script:
-  - export -f travis_wait 60 
-  - bash ci.sh
+script: bash travis_wait 60 ci.sh
