@@ -1,5 +1,5 @@
 # Base
-FROM alpine:latest AS base
+FROM amd64/alpine:latest AS base
 # Use Docker Buildx
 #FROM --platform=$TARGETPLATFORM alpine:latest AS base
 ARG TARGETPLATFORM
@@ -13,7 +13,7 @@ RUN set -ex; \
     rm -rf metricbeat-${VERSION:-7.6.2}-linux-x86_64/metricbeat
 
 # Builder
-FROM golang:latest AS builder
+FROM amd64/golang:latest AS builder
 # Use Docker Buildx
 #FROM --platform=$TARGETPLATFORM golang:latest AS builder
 ARG TARGETPLATFORM
@@ -21,7 +21,7 @@ ARG BUILDPLATFORM
 ARG VERSION
 ARG GO_ARCH
 
-ENV CGO_ENABLED=0 GOOS=linux GOARCH=${GO_ARCH:-amd64}
+#ENV CGO_ENABLED=0 GOOS=linux GOARCH=${GO_ARCH:-amd64}
 
 # GO
 #RUN go get -x github.com/elastic/beats; exit 0
@@ -49,7 +49,7 @@ RUN git fetch && \
     #CGO_ENABLED=0 GOOS=linux GOARCH=${GO_ARCH:-arm64} make
 
 # Prod 
-FROM ubuntu:focal
+FROM amd64/ubuntu:focal
 # Use Docker Buildx
 #FROM --platform=$TARGETPLATFORM ubuntu:focal
 ARG TARGETPLATFORM
