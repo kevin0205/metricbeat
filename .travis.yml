@@ -1,6 +1,6 @@
 language: bash
-services:
-  - docker
+#services:
+#  - docker
 dist: focal
 sudo: required
 env:
