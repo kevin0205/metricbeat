@@ -1,9 +1,15 @@
 language: go
 go:
   - master
-arch:
+#arch:
   #- amd64
-  - arm64
+#  - arm64
+matrix:
+  include:
+   #- os: linux
+   #  arch: amd64
+   - os: linux
+     arch: arm64
 dist: focal
 sudo: required
 env:
