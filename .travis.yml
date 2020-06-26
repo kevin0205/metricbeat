@@ -14,13 +14,13 @@ before_install:
   - wget -O $HOME/.docker/cli-plugins/docker-buildx https://github.com/docker/buildx/releases/download/v0.4.1/buildx-v0.4.1.linux-amd64
   - chmod 0750 $HOME/.docker/cli-plugins/docker-buildx
   #- echo '{"experimental":"enabled"}' | sudo tee $HOME/.docker/config.json
-  - docker version
-  - docker buildx version
+  #- docker version
+  #- docker buildx version
 install:
   - docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
-  - ls -al /proc/sys/fs/binfmt_misc/
+  #- ls -al /proc/sys/fs/binfmt_misc/
   - docker buildx create --use --name xbuilder
-  - docker buildx inspect xbuilder --bootstrap
-  - docker buildx ls
+  #- docker buildx inspect xbuilder --bootstrap
+  #- docker buildx ls
 #script: 
-  - travis_wait 50 sh -c 'bash ci.sh &> /tmp/build.log || (tail -n 100 /tmp/build.log && exit 1)'
+  - travis_wait 50 sh -c 'bash ci.sh'
