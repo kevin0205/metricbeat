@@ -1,4 +1,9 @@
 language: go
+go:
+  - master
+arch:
+  #- amd64
+  - arm64
 dist: focal
 sudo: required
 env:
