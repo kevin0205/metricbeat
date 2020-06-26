@@ -3,7 +3,7 @@
 if [ "$TRAVIS_PULL_REQUEST" = "true" ] || [ "$TRAVIS_BRANCH" != "master" ]; then
   docker buildx build \
     --progress plain \
-    --platform=linux/arm64 \
+    --platform=linux/amd64,linux/arm64 \
     --build-arg VERSION=7.5.2 \
     .
   exit $?
@@ -12,7 +12,7 @@ echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin &> /de
 TAG="${TRAVIS_TAG:-latest}"
 docker buildx build \
      --progress plain \
-    --platform=linux/arm64 \
+    --platform=linux/amd64,linux/arm64 \
     --build-arg VERSION=7.5.2 \
     -t $DOCKER_REPO:$TAG \
     --push \
