@@ -18,7 +18,7 @@ before_install:
   - echo '{"experimental":"enabled"}' | sudo tee /etc/docker/daemon.json
   - echo '{"experimental":"enabled"}' | sudo tee $HOME/.docker/config.json
   - wget -O $HOME/.docker/cli-plugins/docker-buildx https://github.com/docker/buildx/releases/download/v0.4.1/buildx-v0.4.1.linux-amd64
-  - chmod 0750 $HOME/.docker/cli-plugins/docker-buildx
+  - chmod a+x $HOME/.docker/cli-plugins/docker-buildx
   - sudo systemctl restart docker
   - docker version
   - docker buildx version
