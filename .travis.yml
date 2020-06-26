@@ -22,5 +22,5 @@ install:
   - docker buildx create --use --name xbuilder
   #- docker buildx inspect xbuilder --bootstrap
   #- docker buildx ls
-#script: 
+script: 
   - travis_wait 50 sh -c 'bash ci.sh'
