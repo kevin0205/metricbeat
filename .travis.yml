@@ -26,8 +26,9 @@ install:
   - docker buildx create --use --name xbuilder
   #- docker buildx inspect xbuilder --bootstrap
   #- docker buildx ls
-#script: 
-#  - travis_wait 50 sh -c 'bash ci.sh'
+script: 
+  #- travis_wait 50 sh -c 'bash ci.sh'
+  - travis_wait 50 sh -c 'bash runbuildx.sh'
 
 #script: docker buildx build --platform "$TARGET_ARCH" --build-arg VERSION="$TARGET_VERSION" -t "$IMAGE_TAG" "$SPECIFIC_TAG" . --push
-script: travis_wait 50 docker buildx build --platform "$TARGET_ARCH" --build-arg VERSION="$TARGET_VERSION" -t "$DOCKER_REPO" -t "$DOCKER_REPO":"$TARGET_VERSION" . --push
+#script: travis_wait 50 docker buildx build --platform "$TARGET_ARCH" --build-arg VERSION="$TARGET_VERSION" -t "$DOCKER_REPO" -t "$DOCKER_REPO":"$TARGET_VERSION" . --push
