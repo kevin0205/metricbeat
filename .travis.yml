@@ -6,6 +6,10 @@ sudo: required
 env:
   global:
     - DOCKER_REPO=kevin0205/metricbeat
+    - TARGET_ARCH=linux/amd64,linux/64
+    - VERSION=7.6.2 
+    - IMAGE_TAG=kevin0205/metricbeat 
+    - SPECIFIC_TAG="-t '$IMAGE_TAG:$VERSION'"
 before_install:
   - curl -fsSL https://get.docker.com | sh
   - sudo systemctl restart docker
@@ -22,5 +26,7 @@ install:
   - docker buildx create --use --name xbuilder
   #- docker buildx inspect xbuilder --bootstrap
   #- docker buildx ls
-script: 
-  - travis_wait 50 sh -c 'bash ci.sh'
+#script: 
+#  - travis_wait 50 sh -c 'bash ci.sh'
+
+script: docker buildx build --platform "$TARGET_ARCH" --build-arg VERSION="$VERSION" -t "$IMAGE_TAG" $SPECIFIC_TAG . --push
