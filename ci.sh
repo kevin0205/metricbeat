@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin &> /dev/null
-TAG="${TRAVIS_TAG:-latest}"
+TAG="${TARGET_VERSION:-latest}"
 docker buildx build \
     --progress plain \
     --platform=$TARGET_ARCH \
