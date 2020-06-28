@@ -11,7 +11,7 @@ fi
 echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin &> /dev/null
 TAG="${TRAVIS_TAG:-latest}"
 docker buildx build \
-     --progress plain \
+    --progress plain \
     --platform=linux/amd64,linux/arm64 \
     --build-arg VERSION=7.5.2 \
     -t $DOCKER_REPO:$TAG \
