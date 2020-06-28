@@ -7,7 +7,7 @@ env:
   global:
     - DOCKER_REPO=kevin0205/metricbeat
     - TARGET_ARCH=linux/amd64,linux/64
-    - VERSION=7.6.2 
+    - VERSION=7.5.2 
     - IMAGE_TAG=kevin0205/metricbeat 
     - SPECIFIC_TAG="-t '$IMAGE_TAG:$VERSION'"
 before_install:
