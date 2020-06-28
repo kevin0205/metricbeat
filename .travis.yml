@@ -30,4 +30,4 @@ install:
 #  - travis_wait 50 sh -c 'bash ci.sh'
 
 #script: docker buildx build --platform "$TARGET_ARCH" --build-arg VERSION="$TARGET_VERSION" -t "$IMAGE_TAG" "$SPECIFIC_TAG" . --push
-script: docker buildx build --platform "$TARGET_ARCH" --build-arg VERSION="$TARGET_VERSION" -t "$IMAGE_TAG" . --push
+script: travis_wait 50 docker buildx build --platform "$TARGET_ARCH" --build-arg VERSION="$TARGET_VERSION" -t "$IMAGE_TAG" -t "$IMAGE_TAG":"TARGET_VERSION" . --push
