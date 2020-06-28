@@ -25,4 +25,4 @@ install:
   #- docker buildx inspect xbuilder --bootstrap
   #- docker buildx ls
 script: 
-  - travis_wait 50 sh -c 'bash ci.sh'
+  - travis_wait 30 sh -c 'bash ci.sh'
