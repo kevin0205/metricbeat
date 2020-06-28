@@ -8,7 +8,7 @@ env:
     - DOCKER_REPO=kevin0205/metricbeat
     - TARGET_ARCH=linux/amd64,linux/arm64
     - TARGET_VERSION=7.5.2
-    - IMAGE_TAG=kevin0205/metricbeat 
+    #- IMAGE_TAG=kevin0205/metricbeat 
     #- SPECIFIC_TAG="-t '$IMAGE_TAG:$TARGET_VERSION'"
 before_install:
   - curl -fsSL https://get.docker.com | sh
@@ -30,4 +30,4 @@ install:
 #  - travis_wait 50 sh -c 'bash ci.sh'
 
 #script: docker buildx build --platform "$TARGET_ARCH" --build-arg VERSION="$TARGET_VERSION" -t "$IMAGE_TAG" "$SPECIFIC_TAG" . --push
-script: travis_wait 50 docker buildx build --platform "$TARGET_ARCH" --build-arg VERSION="$TARGET_VERSION" -t "$IMAGE_TAG" -t "$IMAGE_TAG":"TARGET_VERSION" . --push
+script: travis_wait 50 docker buildx build --platform "$TARGET_ARCH" --build-arg VERSION="$TARGET_VERSION" -t "$DOCKER_REPO" -t "$DOCKER_REPO":"$TARGET_VERSION" . --push
