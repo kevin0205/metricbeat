@@ -14,7 +14,7 @@ docker buildx build \
     --progress plain \
     --platform=$TARGET_ARCH \
     --build-arg VERSION=$TARGET_VERSION \
-    -t $DOCKER_REPO \
     -t $DOCKER_REPO:$TARGET_VERSION \
+    -t $DOCKER_REPO \
     --push \
     .
