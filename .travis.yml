@@ -8,7 +8,7 @@ env:
     - DOCKER_CLI_EXPERIMENTAL=enabled
     - DOCKER_REPO=kevin0205/metricbeat
     - TARGET_ARCH=linux/amd64,linux/arm64
-    - TARGET_VERSION=7.6.2
+    - TARGET_VERSION=7.7.1
 before_install:
   - curl -fsSL https://get.docker.com | sh
   - sudo systemctl restart docker
