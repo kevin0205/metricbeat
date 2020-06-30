@@ -11,7 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
       - name: Install Docker Buildx
         if: success()
         run: |
@@ -19,7 +18,6 @@ jobs:
           mkdir -p $HOME/.docker/cli-plugins
           wget -O $HOME/.docker/cli-plugins/docker-buildx https://github.com/docker/buildx/releases/download/v0.4.1/buildx-v0.4.1.linux-amd64
           chmod 0750 $HOME/.docker/cli-plugins/docker-buildx
-
       - name: Install QEMU
         if: success()
         run: |
@@ -27,14 +25,12 @@ jobs:
           sudo systemctl restart docker
           docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
           docker buildx create --use --name xbuilder
-
       #- name: Check Vesrion
       #  run: |
       #    docker version
       #    docker buildx version
       #    ls -al /proc/sys/fs/binfmt_misc/
       #    docker buildx ls
-
   cd:
     runs-on: ubuntu-latest
     needs: ci
@@ -49,12 +45,14 @@ jobs:
       - name: Run Buildx
         run: |
           #docker buildx build --platform=linux/amd64,linux/arm64 --output "type=image,push=true" --file ./Dockerfile .
-          docker buildx build \
-          --progress plain \
-          --platform=linux/amd64,linux/arm64 \
-          --build-arg VERSION=7.6.2 \
-          -t kevin0205/metricbeat:7.6.2G \
-          -t kevin0205/metricbeat \
-          --push \
-          --file ./Dockerfile \
-          .
+          docker buildx build --platform linux/amd64,linux/arm64 --build-arg VERSION=7.6.2 -t kevin0205/metricbeat:7.6.2 --file ./Dockerfile . --no-cache --load
+          docker push kevin0205/metricbeat:7.6.2
+          #docker buildx build \
+          #--progress plain \
+          #--platform=linux/amd64,linux/arm64 \
+          #--build-arg VERSION=7.6.2 \
+          #-t kevin0205/metricbeat:7.6.2 \
+          #-t kevin0205/metricbeat \
+          #--push \
+          #--file ./Dockerfile \
+          #.
