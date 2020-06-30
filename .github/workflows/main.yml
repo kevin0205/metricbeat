@@ -7,11 +7,12 @@ on:
     branches:
       - master
 env:
-  runs-on: ubuntu-latest
+  #runs-on: ubuntu-latest
   DOCKER_CLI_EXPERIMENTAL: enabled
   DOCKER_REPO: kevin0205/metricbeat
   TARGET_ARCH: linux/amd64,linux/arm64
   TARGET_VERSION: 7.5.2
+  TAG: ${TARGET_VERSION:-latest}
 
 jobs:
   ci:
