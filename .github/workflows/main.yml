@@ -8,6 +8,8 @@ on:
       - master
 jobs:
   declare:
+  steps:
+    - name: Declared Global Variable
     env:
       global:
         - DOCKER_CLI_EXPERIMENTAL=enabled
