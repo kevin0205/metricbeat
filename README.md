@@ -4,4 +4,4 @@ Test Travis CI
 2. Use Docker Buildx  
 3. Use Travis CI  
 4. Build Multi Architecture Docker Image (amd64 / arm64)  
-5. Auto Push Docker Hub  
+5. Auto Push DockerHub  
