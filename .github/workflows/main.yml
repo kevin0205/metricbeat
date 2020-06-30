@@ -7,12 +7,10 @@ on:
     branches:
       - master
 env:
-  #runs-on: ubuntu-latest
   DOCKER_CLI_EXPERIMENTAL: enabled
   DOCKER_REPO: kevin0205/metricbeat
   TARGET_ARCH: linux/amd64,linux/arm64
   TARGET_VERSION: 7.5.2
-  TAG: ${TARGET_VERSION:-latest}
 
 jobs:
   ci:
@@ -51,8 +49,8 @@ jobs:
         run: |
             echo "${DOCKER_PASSWORD}" | docker login --username ${DOCKER_USERNAME} --password-stdin
       - name: Run Buildx
-        #env:
-        #  TAG: ${TARGET_VERSION:-latest}
+        env:
+            TAG: ${TARGET_VERSION:-latest}
         run: |
           docker buildx build \
           --progress plain \
