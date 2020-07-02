@@ -7,7 +7,7 @@ Test Travis CI：Success
 5. Build Multi Architecture Docker Image (amd64 / arm64)  
 6. Auto Push DockerHub  
 
-# Travis CI Hosted Runners Build Server Info (Check OS / Kernel Version)
+# Travis CI Hosted Runners Build Server Info
 # Cloud Instance
     Google Cloud Platform (GCP)
 
