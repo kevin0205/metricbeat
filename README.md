@@ -12,11 +12,11 @@ Test Travis CI：Success
     Google Cloud Platform (GCP) GCE
 
 # Custom Operating System and Version：Yes
-  dist: focal [Build：Success]
-  dist: xenial [Build：Success]
+    dist: focal [Build：Success]
+    dist: xenial [Build：Success]
 
-  ubuntu-20.04 (focal)
-  ubuntu-16.04 (xenial)
+    ubuntu-20.04 (focal)
+    ubuntu-16.04 (xenial)
 
 # lsb_release -a
     Distributor ID:	Ubuntu
