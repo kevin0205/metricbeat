@@ -24,8 +24,17 @@ Test Travis CI：Success
     Release:	20.04
     Codename:	focal
 
+    Distributor ID:	Ubuntu
+    Description:	Ubuntu 16.04.6 LTS
+    Release:	16.04
+    Codename:	xenial
+
 # uname -r
+    Ubuntu 20.04 LTS
     5.4.0-1018-gcp
+
+    Ubuntu 16.04.6 LTS
+    4.15.0-1028-gcp
 
 # docker version
     Client: Docker Engine - Community
