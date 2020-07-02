@@ -19,7 +19,9 @@ before_install:
 install:
   - docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
   - docker buildx create --use --name xbuilder
-  # chech Version
+  # Chech Version
+  - lsb_release -a
+  - uname -r
   - docker version
   - docker buildx version
   - ls -al /proc/sys/fs/binfmt_misc/
