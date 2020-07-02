@@ -1,7 +1,8 @@
 language: bash
 #services:
 #  - docker
-dist: focal
+#dist: focal
+dist: xenial
 sudo: required
 env:
   global:
