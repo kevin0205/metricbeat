@@ -7,12 +7,16 @@ Test Travis CI：Success
 5. Build Multi Architecture Docker Image (amd64 / arm64)  
 6. Auto Push DockerHub  
 
-# Travis CI Hosted Runners Build Server Info
+# Travis CI Hosted Runners (Build system information)
 # Cloud Instance
-    Google Cloud Platform (GCP)
+    Google Cloud Platform (GCP) GCE
 
 # Custom Operating System and Version：Yes
-  dist: focal
+  dist: focal [Build：Success]
+  dist: xenial [Build：Success]
+
+  ubuntu-20.04 (focal)
+  ubuntu-16.04 (xenial)
 
 # lsb_release -a
     Distributor ID:	Ubuntu
