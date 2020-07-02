@@ -8,6 +8,7 @@ Test Travis CI：Success
 6. Auto Push DockerHub  
 
 # Build Server Info (Check OS / Kernel Version)
+# Travis CI Hosted Runners
 # Cloud Instance
     Google Cloud Platform (GCP)
 
